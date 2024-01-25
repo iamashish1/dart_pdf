@@ -420,7 +420,7 @@ class PdfPreviewState extends State<PdfPreview> {
                   width: double.infinity,
                   child: SafeArea(
                     child: Wrap(
-                      // alignment: WrapAlignment.spaceAround,
+                      alignment: WrapAlignment.spaceAround,
                       children: actions,
                     ),
                   ),
