@@ -62,6 +62,7 @@ class PdfPreview extends StatefulWidget {
     this.loadingWidget,
     this.onPageFormatChanged,
     this.dpi,
+    this.actionButtonBarColor,
   })  : _pagesBuilder = null,
         super(key: key);
 
@@ -120,6 +121,7 @@ class PdfPreview extends StatefulWidget {
     this.onPageFormatChanged,
     this.dpi,
     required CustomPdfPagesBuilder pagesBuilder,
+    this.actionButtonBarColor,
   })  : _pagesBuilder = pagesBuilder,
         super(key: key);
 
@@ -127,6 +129,9 @@ class PdfPreview extends StatefulWidget {
     'A4': PdfPageFormat.a4,
     'Letter': PdfPageFormat.letter,
   };
+
+  //Action Button Bar Color
+  final Color? actionButtonBarColor;
 
   /// Called when a pdf document is needed
   final LayoutCallback build;
@@ -410,12 +415,12 @@ class PdfPreviewState extends State<PdfPreview> {
               ),
               child: Material(
                 elevation: 4,
-                color: theme.primaryColor,
+                color: widget.actionButtonBarColor ?? theme.primaryColor,
                 child: SizedBox(
                   width: double.infinity,
                   child: SafeArea(
                     child: Wrap(
-                      alignment: WrapAlignment.spaceAround,
+                      // alignment: WrapAlignment.spaceAround,
                       children: actions,
                     ),
                   ),
